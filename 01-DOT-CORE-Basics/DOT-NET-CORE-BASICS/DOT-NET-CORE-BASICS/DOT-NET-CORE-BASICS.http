@@ -1,0 +1,6 @@
+@DOT_NET_CORE_BASICS_HostAddress = http://localhost:5053
+
+GET {{DOT_NET_CORE_BASICS_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
