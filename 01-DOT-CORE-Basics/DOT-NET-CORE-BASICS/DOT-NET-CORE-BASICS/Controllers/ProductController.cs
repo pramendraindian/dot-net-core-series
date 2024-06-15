@@ -1,11 +1,8 @@
 ﻿using DOT_NET_CORE_BASICS.Commands;
 using DOT_NET_CORE_BASICS.Models;
 using DOT_NET_CORE_BASICS.Queries;
-using DOT_NET_CORE_BASICS.Repositories;
 using MediatR;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using System;
 
 namespace DOT_NET_CORE_BASICS.Controllers
 {

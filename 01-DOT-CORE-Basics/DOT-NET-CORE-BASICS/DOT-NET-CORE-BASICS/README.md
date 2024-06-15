@@ -1,12 +1,14 @@
 # dot-net-core-basics
 Dependencies -
+    <PackageReference Include="MediatR" Version="12.3.0" />
+    <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="8.0.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.6" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="8.0.6" />
 
-1. MediatR" Version="12.3.0"
-2. Microsoft.EntityFrameworkCore" Version="8.0.6"
-3. Microsoft.EntityFrameworkCore.SqlServer" Version="8.0.6"
 
-
-1.Add New Controller Product
+1. Add New Controller Product  
+2. Configure DB Context  
+3. Register dependencies to Program.cs
 
 chrome://flags/
 Allow invalid certificates for resources loaded from localhost.
