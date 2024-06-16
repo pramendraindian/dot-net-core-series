@@ -1,0 +1,3 @@
+References--
+https://www.c-sharpcorner.com/article/implement-jwt-in-net-core-api/
+https://www.c-sharpcorner.com/article/policy-based-authorization-with-angular-and-asp-net-core-using-jwt/

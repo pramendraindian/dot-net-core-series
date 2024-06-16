@@ -1,0 +1,6 @@
+@AngularDOTNETCoreJWT.Server_HostAddress = http://localhost:5206
+
+GET {{AngularDOTNETCoreJWT.Server_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

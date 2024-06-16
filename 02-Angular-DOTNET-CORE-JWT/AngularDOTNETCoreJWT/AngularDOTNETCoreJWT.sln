@@ -1,0 +1,33 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.10.35004.147
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AngularDOTNETCoreJWT.Server", "AngularDOTNETCoreJWT.Server\AngularDOTNETCoreJWT.Server.csproj", "{89F9A9DB-94F4-4F7B-969E-FA9024C99251}"
+EndProject
+Project("{54A90642-561A-4BB1-A94E-469ADEE60C69}") = "angulardotnetcorejwt.client", "angulardotnetcorejwt.client\angulardotnetcorejwt.client.esproj", "{8FD2B949-5AB0-4077-883D-CE80CDE6BD60}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{89F9A9DB-94F4-4F7B-969E-FA9024C99251}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{89F9A9DB-94F4-4F7B-969E-FA9024C99251}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{89F9A9DB-94F4-4F7B-969E-FA9024C99251}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{89F9A9DB-94F4-4F7B-969E-FA9024C99251}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8FD2B949-5AB0-4077-883D-CE80CDE6BD60}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8FD2B949-5AB0-4077-883D-CE80CDE6BD60}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8FD2B949-5AB0-4077-883D-CE80CDE6BD60}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{8FD2B949-5AB0-4077-883D-CE80CDE6BD60}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8FD2B949-5AB0-4077-883D-CE80CDE6BD60}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8FD2B949-5AB0-4077-883D-CE80CDE6BD60}.Release|Any CPU.Deploy.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {57F7E1E7-8A9F-481B-82B2-ECB5D9347DC8}
+	EndGlobalSection
+EndGlobal
