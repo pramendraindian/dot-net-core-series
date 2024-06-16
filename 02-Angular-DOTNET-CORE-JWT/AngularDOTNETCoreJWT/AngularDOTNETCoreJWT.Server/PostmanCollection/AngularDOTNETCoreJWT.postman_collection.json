@@ -1,0 +1,57 @@
+{
+	"info": {
+		"_postman_id": "e5d3425d-5a1a-48ac-bbd3-cddf81adecfe",
+		"name": "AngularDOTNETCoreJWT",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "GetAdminData",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhZG1pbiIsImZpcnN0TmFtZSI6IkFkbWluIiwicm9sZSI6IkFkbWluIiwianRpIjoiNjIzYzNjZTgtMTM3My00NTVkLWIwNzYtOTg1MGQ4ODQyZTY3IiwiZXhwIjoxNzE4NTM3NjQxLCJpc3MiOiJodHRwczovL2xvY2FsaG9zdDo1MDAxLyIsImF1ZCI6Imh0dHBzOi8vbG9jYWxob3N0OjUwMDEvIn0.19YpQXANS1wN0M4XrE9-ogNNDrBjlob1_IUdR8ahoDA",
+						"type": "default"
+					}
+				],
+				"url": "https://localhost:7270/api/User/GetAdminData"
+			},
+			"response": []
+		},
+		{
+			"name": "GetUserData",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhZG1pbiIsImZpcnN0TmFtZSI6IkFkbWluIiwicm9sZSI6IkFkbWluIiwianRpIjoiNjIzYzNjZTgtMTM3My00NTVkLWIwNzYtOTg1MGQ4ODQyZTY3IiwiZXhwIjoxNzE4NTM3NjQxLCJpc3MiOiJodHRwczovL2xvY2FsaG9zdDo1MDAxLyIsImF1ZCI6Imh0dHBzOi8vbG9jYWxob3N0OjUwMDEvIn0.19YpQXANS1wN0M4XrE9-ogNNDrBjlob1_IUdR8ahoDA",
+						"type": "default"
+					}
+				],
+				"url": "https://localhost:7270/api/User/GetUserData"
+			},
+			"response": []
+		},
+		{
+			"name": "Login-GetToken",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"userId\": \"admin\",\r\n  \"password\": \"1234\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "https://localhost:7270/api/Login"
+			},
+			"response": []
+		}
+	]
+}
