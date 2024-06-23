@@ -1,0 +1,32 @@
+﻿Instllation Guide
+https://www.youtube.com/watch?v=aKDWWICgfA0
+
+Start Zoo Keeper
+Step -1 Navigate to folder windows then run below command
+C:\kafka_2.13-3.7.0\bin\windows>.\zookeeper-server-start.bat C:\kafka_2.13-3.7.0\config\zookeeper.properties
+
+Step -2 Start Kafka Server
+C:\kafka_2.13-3.7.0\bin\windows>.\kafka-server-start.bat C:\kafka_2.13-3.7.0\config\server.properties
+
+Step -3 Create New Kafka Topic
+
+C:\kafka_2.13-3.7.0\bin\windows>.\kafka-topics.bat --create --topic product-topic --bootstrap-server localhost:9092
+
+Step -4 Create A producer and send the message
+C:\kafka_2.13-3.7.0\bin\windows>.\kafka-console-producer.bat --topic product-topic --bootstrap-server localhost:9092
+>Sending 1 st message
+>Sending 2nd message
+>Sending 3rd message
+
+Step -5 Read the messages as consumer
+E:\kafka\bin\windows>.\kafka-console-consumer.bat --topic product-topic --from-beginning --bootstrap-server localhost:9092
+1
+2
+3
+4
+5
+
+Step -6 Find the consumer group names
+E:\kafka\bin\windows>.\kafka-consumer-groups.bat --all-topics --bootstrap-server localhost:9092 --list
+console-consumer-55346
+
