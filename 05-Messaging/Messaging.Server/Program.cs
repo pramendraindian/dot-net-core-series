@@ -6,6 +6,8 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 //Configure SignalR Client
 builder.Services.AddSignalR();
+//Add Hosted Service - to enable active listener
+builder.Services.AddHostedService<MessageInterceptor>();
 
 var app = builder.Build();
 if (app.Environment.IsDevelopment())

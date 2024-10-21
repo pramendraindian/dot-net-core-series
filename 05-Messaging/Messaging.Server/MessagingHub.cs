@@ -1,14 +1,21 @@
 ﻿using Microsoft.AspNetCore.SignalR;
 using Microsoft.AspNetCore.SignalR.Client;
-using System.Net;
 
 namespace Messaging.Server
 {
     public class MessagingHub:Hub
     {
+        
         public override async Task OnConnectedAsync()
         {
-            await this.Clients.All.SendAsync("onClientConnect", $"Client Id #{this.Context.ConnectionId} connected!!");
+            //Broadcast the message to all the connected consumers
+            await this.Clients.All.SendAsync("onClientConnect", $"Client Id #{this.Context.ConnectionId} connected!! User Info : {this.Context?.User?.Identity?.Name}");
+
+            //Send message to the consumer in context
+            await this.Clients.Caller.SendAsync("onClientConnect", "Welcome he man");
+
+
+
         }
 
         public override async Task OnDisconnectedAsync(Exception? exception)
