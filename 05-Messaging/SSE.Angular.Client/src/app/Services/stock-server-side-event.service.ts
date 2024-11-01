@@ -82,12 +82,14 @@ fetch('https://localhost:7247/stock-updates/PPS')
 }
 
 rs(){
-  fetch("https://localhost:7247/stock-updates/PPS",{
-    method: 'GET',
+  fetch("https://localhost:7247/stock-updates/MSFT",{
+    method: 'POST',
     headers: {
       'X-My-Custom-Header': 'value-v',
       'Authorization': 'Bearer ' + 'XYZZZZZ',
-    }
+      'UserId': 'PPS',
+    },
+    body: 'Pramendra'
   })
   .then((response) => response.body)
   .then((rb) => {

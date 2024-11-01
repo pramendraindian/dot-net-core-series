@@ -1,4 +1,7 @@
 using Messaging.Server;
+using Microsoft.AspNetCore.Mvc;
+using System.Net.Mime;
+using System.Xml.Linq;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddSingleton<StockService>();
@@ -31,7 +34,7 @@ app.MapControllers();
 //Configure Mesaging hub middleware
 app.MapHub<MessagingHub>("message-hub");
 //Help Url - https://learn.microsoft.com/en-us/aspnet/core/fundamentals/minimal-apis/parameter-binding?view=aspnetcore-8.0
-app.MapGet("/stock-updates/{userId}", async (string userId, CancellationToken ct, StockService stockService, HttpContext ctx) =>
+app.MapPost("/stock-updates/{stockId}", async (string stockId, [FromHeader(Name = "UserId")] string userId, CancellationToken ct, StockService stockService, HttpContext ctx) =>
 {
     //Add new response header, which browser can understand
     ctx.Response.Headers.Add("Content-Type", "text/event-stream");
@@ -41,7 +44,7 @@ app.MapGet("/stock-updates/{userId}", async (string userId, CancellationToken ct
         var stock = await stockService.WaitForNewStock();
         
         //await ctx.Response.WriteAsync($"data:");
-        await System.Text.Json.JsonSerializer.SerializeAsync(ctx.Response.Body,new Stock("Microsoft",stock.Price,userId));
+        await System.Text.Json.JsonSerializer.SerializeAsync(ctx.Response.Body,new Stock(stockId, stock.Price,userId));
        
         await ctx.Response.WriteAsync($"\n\n");
         await ctx.Response.Body.FlushAsync();
