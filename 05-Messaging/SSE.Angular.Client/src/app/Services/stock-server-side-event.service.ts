@@ -85,7 +85,6 @@ rs(){
   fetch("https://localhost:7247/stock-updates/PPS",{
     method: 'GET',
     headers: {
-      'Content-Type': 'text/plain',
       'X-My-Custom-Header': 'value-v',
       'Authorization': 'Bearer ' + 'XYZZZZZ',
     }
