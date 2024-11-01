@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>SSE Client</title>
+</head>
+<body>
+<h1>Server-Sent Events Client</h1>
+<script>
+    const eventSource = new EventSource('https://localhost:7247/stock-updates');
+
+    eventSource.onmessage = function (event) {
+        const item = JSON.parse(event.data);
+        console.log("New item received:", item);
+        document.writeln(`<p>New messsage received [Name:${item.Name}, Price:${item.Price}]</p>`);
+        document.writeln('\n');
+    };
+</script>
+</body>
+</html>

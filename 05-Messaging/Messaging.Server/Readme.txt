@@ -9,3 +9,5 @@
 	app.MapHub<MessagingHub>("message-hub");
 4. References
 	https://github.com/aspnet/SignalR-samples/blob/main/StockTickR/CsharpClient/Program.cs
+	https://www.programiz.com/csharp-programming/online-compiler/
+	https://www.programiz.com/online-compiler/2iJOqoz9uPLpV
