@@ -8,7 +8,7 @@ export class StockServerSideEventService {
 
   constructor() { }
   getStockStream(): Observable<any> {
-    const eventSource = new EventSource('https://localhost:7247/stock-updates');
+    const eventSource = new EventSource('https://localhost:7247/stock-updates/PPS');
 
     return new Observable(observer => {
         eventSource.onmessage = event => {
@@ -20,7 +20,7 @@ export class StockServerSideEventService {
 
  processEventStream(): void {
   //TODO-RnD ; How to pass header with EventSource
-  const eventSource = new EventSource('https://localhost:7247/stock-updates');
+  const eventSource = new EventSource('https://localhost:7247/stock-updates/PPS');
       eventSource.onmessage = event => {
         const messageData= JSON.parse(event.data);
         console.warn(messageData);
@@ -40,7 +40,7 @@ export class StockServerSideEventService {
 
 readStream(){
 // Fetch the event stream from the server
-fetch('https://localhost:7247/stock-updates')
+fetch('https://localhost:7247/stock-updates/PPS')
     .then(response => {
         // Get the readable stream from the response body
         const stream = response.body;
@@ -59,8 +59,8 @@ fetch('https://localhost:7247/stock-updates')
                         return;
                     }
                     // Convert the chunk value to a string
-                    console.warn(value);
-                    const chunkString = new TextDecoder().decode(value);
+                    //console.warn(value);
+                    const chunkString = new TextDecoder().decode(value,{ stream: true });
                     // Log the chunk string
                     console.log(chunkString);
 
@@ -80,4 +80,56 @@ fetch('https://localhost:7247/stock-updates')
         console.error(error);
     });
 }
+
+rs(){
+  fetch("https://localhost:7247/stock-updates/PPS",{
+    method: 'GET',
+    headers: {
+      'Content-Type': 'text/plain',
+      'X-My-Custom-Header': 'value-v',
+      'Authorization': 'Bearer ' + 'XYZZZZZ',
+    }
+  })
+  .then((response) => response.body)
+  .then((rb) => {
+    const reader = rb?.getReader();
+
+    return new ReadableStream({
+      start(controller) {
+        // The following function handles each data chunk
+        function push() {
+          // "done" is a Boolean and value a "Uint8Array"
+          reader?.read().then(({ done, value }) => {
+            // If there is no more data to read
+            if (done) {
+              console.log("done", done);
+              controller.close();
+              return;
+            }
+            // Get the data and send it to the browser via the controller
+            controller.enqueue(value);
+            // Check chunks by logging to the console
+            //console.log(done, value);
+            const chunkString = new TextDecoder().decode(value,{ stream: true });
+            // Log the chunk string
+            //console.log(chunkString);
+            console.log(JSON.parse(chunkString));
+            push();
+          });
+        }
+
+        push();
+      },
+    });
+  })
+  .then((stream) =>
+    // Respond with our stream
+    new Response(stream, { headers: { "Content-Type": "text/html" } }).text(),
+  )
+  .then((result) => {
+    // Do things with result
+    console.log(result);
+  });
+}
+
 }

@@ -1,4 +1,4 @@
-public record Stock(string Name, double Price);
+public record Stock(string Name, double Price,string? UserId=null);
 
 public class StockService
 {
@@ -20,7 +20,7 @@ public class StockService
         // Simulate some delay in Item arrival
         Task.Run(async () =>
         {
-            await Task.Delay(TimeSpan.FromSeconds(Random.Shared.Next(0, 5)));
+            await Task.Delay(TimeSpan.FromSeconds(2));
             NotifyNewStockAvailable();
         });
         

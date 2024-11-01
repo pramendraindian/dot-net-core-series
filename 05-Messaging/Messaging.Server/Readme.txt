@@ -13,3 +13,6 @@
 	https://www.programiz.com/online-compiler/2iJOqoz9uPLpV
 	Consume SSE inside Angular application
 	https://dev.to/icolomina/subscribing-to-server-sent-events-with-angular-ee8
+	Congigure middle ware
+	app.MapGet()
+	https://learn.microsoft.com/en-us/aspnet/core/fundamentals/minimal-apis/parameter-binding?view=aspnetcore-8.0
