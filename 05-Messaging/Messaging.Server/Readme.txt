@@ -11,3 +11,5 @@
 	https://github.com/aspnet/SignalR-samples/blob/main/StockTickR/CsharpClient/Program.cs
 	https://www.programiz.com/csharp-programming/online-compiler/
 	https://www.programiz.com/online-compiler/2iJOqoz9uPLpV
+	Consume SSE inside Angular application
+	https://dev.to/icolomina/subscribing-to-server-sent-events-with-angular-ee8

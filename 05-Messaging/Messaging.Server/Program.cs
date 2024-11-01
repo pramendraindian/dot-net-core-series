@@ -5,7 +5,7 @@ builder.Services.AddSingleton<StockService>();
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowAnyOrigin", p => p
-        .AllowAnyOrigin()
+        .WithOrigins("http://localhost:4200", "other domains")
         .AllowAnyHeader()
         .AllowAnyMethod());
 });
