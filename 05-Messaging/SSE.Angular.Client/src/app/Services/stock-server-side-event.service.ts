@@ -17,4 +17,24 @@ export class StockServerSideEventService {
       };
     });
  }
+
+ processEventStream(): void {
+  //TODO-RnD ; How to pass header with EventSource
+  const eventSource = new EventSource('https://localhost:7247/stock-updates');
+      eventSource.onmessage = event => {
+        const messageData= JSON.parse(event.data);
+        console.warn(messageData);
+        
+    };
+
+    eventSource.onerror = (err)=> {
+      if (err) {
+            console.warn(err);
+        
+      }
+    };
+  
+}
+
+
 }

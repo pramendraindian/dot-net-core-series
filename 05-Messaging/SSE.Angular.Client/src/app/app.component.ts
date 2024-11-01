@@ -13,12 +13,15 @@ export class AppComponent implements OnInit {
 
   }
   ngOnInit(): void {
+    this.stockSSEService.processEventStream();
+    /*
     this.stockSSEService.getStockStream().subscribe(
       (data) => {
         console.log(`.... ${data?.Name} , Stock Price: ${data?.Price}`);
         document.write(`<p>.... ${data?.Name} , Stock Price: ${data?.Price}</p>`);
       }
     );
+    */
   }
 
 }
