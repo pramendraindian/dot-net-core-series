@@ -7,13 +7,39 @@ import { ChatService } from '../Services/chat.service';
   styleUrls: ['./chat.component.css']
 })
 export class ChatComponent {
+  connectionId=''
   user = '';
   message = '';
   messages: string[] = [];
-  constructor(private chatService: ChatService) {}
+  constructor(private chatService: ChatService) {
+    this.subscribeChatHubEvents();
+  }
   broadcastMessage(): void {
     this.chatService.broadcastMessage(this.user, this.message);
-    this.messages.push(`You: ${this.message}`);
     this.message = '';
+  }
+
+  subscribeChatHubEvents()
+  {
+    this.chatService.hubConnection.on('GlobalMessageTopic', (connectionId,user, message,allConnectedIds) => {
+      console.log(`Message From ConnectionId: ${connectionId}, User: ${user}, Message: ${message}`);
+      console.log(allConnectedIds);
+      if(this.connectionId===connectionId){
+        this.messages.push(`You pinged: ${message}`);
+      }else{
+      this.messages.push(`ConnectionId [${connectionId}] pinged : ${message}`);
+    }
+    });
+    this.chatService.hubConnection.on('onChatInit', (connectionId,allConnectedIds) => {
+      console.log(`Connection Id: ${connectionId} joined the chat`);
+      console.log(allConnectedIds);
+      this.connectionId=connectionId;
+      //alert(`Connection Id: ${connectionId}`);
+    });
+    this.chatService.hubConnection.on('onChatDestroy', (connectionId,allConnectedIds) => {
+      console.log(`Connection Id: ${connectionId} left the chat !!!`);
+      console.log(allConnectedIds);
+      //alert(`Connection Id: ${connectionId}`);
+    });
   }
 }

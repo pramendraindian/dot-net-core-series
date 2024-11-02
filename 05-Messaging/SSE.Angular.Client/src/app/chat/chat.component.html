@@ -1,6 +1,14 @@
 <div>
-    <input [(ngModel)]="user" placeholder="User" />
-    <input [(ngModel)]="message" placeholder="Message" />
+  <label >UserId: {{connectionId}}</label>
+    
+  </div>
+  <div>
+    <textarea type="textarea" [(ngModel)]="message" placeholder="Message" rows="5" cols="50">
+
+    </textarea>
+  
+  </div>
+  <div>
     <button (click)="broadcastMessage()">Send</button>
   </div>
   <div *ngFor="let msg of messages">

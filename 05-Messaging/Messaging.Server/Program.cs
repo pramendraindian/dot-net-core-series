@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddSingleton<StockService>();
+builder.Services.AddSingleton<ChatHub>();
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowAnyOrigin", p => p
