@@ -39,6 +39,7 @@ export class ChatComponent {
     this.chatService.hubConnection.on('onChatDestroy', (connectionId,allConnectedIds) => {
       console.log(`Connection Id: ${connectionId} left the chat !!!`);
       console.log(allConnectedIds);
+      this.messages.push(`ConnectionId [${connectionId}] left the chat !!`);
       //alert(`Connection Id: ${connectionId}`);
     });
   }
