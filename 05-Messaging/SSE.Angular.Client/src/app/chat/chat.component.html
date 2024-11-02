@@ -11,6 +11,16 @@
   <div>
     <button (click)="broadcastMessage()">Send</button>
   </div>
+  <hr>
   <div *ngFor="let msg of messages">
     {{msg}}
+  </div>
+<hr>
+  <div>
+    <label >Active Connection Ids</label>
+      
+    </div>
+    <hr>
+  <div *ngFor="let con of connections">
+    {{con?.connectionId}}
   </div>
