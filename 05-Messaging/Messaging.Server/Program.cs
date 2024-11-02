@@ -1,7 +1,7 @@
 using Messaging.Server;
+using Messaging.Server.Hubs;
 using Microsoft.AspNetCore.Mvc;
-using System.Net.Mime;
-using System.Xml.Linq;
+
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddSingleton<StockService>();
@@ -37,6 +37,9 @@ app.UseAuthorization();
 app.MapControllers();
 //Configure Mesaging hub middleware
 app.MapHub<MessagingHub>("message-hub");
+//Configure Chat hub middleware
+app.MapHub<ChatHub>("chat-hub");
+
 //Help Url - https://learn.microsoft.com/en-us/aspnet/core/fundamentals/minimal-apis/parameter-binding?view=aspnetcore-8.0
 app.MapPost("/stock-updates/{stockId}", async (string stockId, [FromHeader(Name = "UserId")] string userId, CancellationToken ct, StockService stockService, HttpContext ctx) =>
 {

@@ -7,7 +7,7 @@ export class ChatService {
   private hubConnection: signalR.HubConnection;
   constructor() {
     this.hubConnection = new signalR.HubConnectionBuilder()
-      .withUrl('https://localhost:7247/message-hub',
+      .withUrl('https://localhost:7247/chat-hub',
         {
            skipNegotiation: true //Important configuration
           ,transport: signalR.HttpTransportType.WebSockets //Important configuration
