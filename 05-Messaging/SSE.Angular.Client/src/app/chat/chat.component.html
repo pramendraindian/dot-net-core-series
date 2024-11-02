@@ -1,0 +1,8 @@
+<div>
+    <input [(ngModel)]="user" placeholder="User" />
+    <input [(ngModel)]="message" placeholder="Message" />
+    <button (click)="broadcastMessage()">Send</button>
+  </div>
+  <div *ngFor="let msg of messages">
+    {{msg}}
+  </div>

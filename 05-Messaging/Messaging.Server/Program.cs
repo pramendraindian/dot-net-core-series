@@ -9,8 +9,12 @@ builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowAnyOrigin", p => p
         .WithOrigins("http://localhost:4200", "other domains")
+        //.AllowAnyOrigin()
         .AllowAnyHeader()
-        .AllowAnyMethod());
+        .AllowAnyMethod()
+        //.SetIsOriginAllowed((host) => true)
+        .WithOrigins("http://localhost:4200")
+        );
 });
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();

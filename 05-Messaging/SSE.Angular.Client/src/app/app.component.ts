@@ -13,7 +13,7 @@ export class AppComponent implements OnInit {
 
   }
   ngOnInit(): void {
-    this.stockSSEService.rs();
+    //this.stockSSEService.rs();
     //this.stockSSEService.readStream();
     //this.stockSSEService.processEventStream();
     /*

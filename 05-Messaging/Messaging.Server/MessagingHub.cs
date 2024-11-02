@@ -24,6 +24,10 @@ namespace Messaging.Server
             await this.Clients.All.SendAsync("onClientDisconnection", $"Client Id #{this.Context.ConnectionId} disconnected!!");
            
         }
+        public async Task BroadcastMessage(string user, string message)
+        {
+            await Clients.All.SendAsync("GlobalMessageTopic", user, message);
+        }
     }
     
 }
