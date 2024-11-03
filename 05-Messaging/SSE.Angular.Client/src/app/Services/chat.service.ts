@@ -13,9 +13,6 @@ export class ChatService {
           ,transport: signalR.HttpTransportType.WebSockets //Important configuration
         })
       .build();
-    
-    
-    
     this.hubConnection.start()
       .catch(err => console.error(err));
   }
