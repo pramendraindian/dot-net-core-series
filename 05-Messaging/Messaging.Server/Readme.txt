@@ -1,4 +1,5 @@
-﻿1. Add a nuGet Dependency
+﻿Git Hub Repository - https://github.com/pramendraindian/dot-net-core-series/tree/main/05-Messaging
+1. Add a nuGet Dependency
 	Microsoft.AspNetCore.SignalR.Client
 2. Add new class MessagingHub and implement SignalR Hub interface
 	
