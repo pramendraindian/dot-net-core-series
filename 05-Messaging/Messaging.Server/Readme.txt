@@ -16,3 +16,7 @@
 	Congigure middle ware
 	app.MapGet()
 	https://learn.microsoft.com/en-us/aspnet/core/fundamentals/minimal-apis/parameter-binding?view=aspnetcore-8.0
+
+5. Important Tools
+	Code Snippet - https://carbon.now.sh/
+	Flow Chart Design - https://app.smartdraw.com/
