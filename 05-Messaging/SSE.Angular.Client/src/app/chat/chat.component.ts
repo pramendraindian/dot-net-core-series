@@ -11,6 +11,7 @@ export class ChatComponent {
   connectionId=''
   user = '';
   message = '';
+  toConnectionId = '';
   messages: string[] = [];
   connections:UserConnection[]= [];
   constructor(private chatService: ChatService) {
@@ -18,6 +19,11 @@ export class ChatComponent {
   }
   broadcastMessage(): void {
     this.chatService.broadcastMessage(this.user, this.message);
+    this.message = '';
+  }
+
+  sebdPrivateMessage(): void {
+    this.chatService.sendPrivateMessage(this.toConnectionId,this.user, this.message);
     this.message = '';
   }
 
@@ -46,6 +52,12 @@ export class ChatComponent {
       console.log(allConnectedIds);
       this.connections=allConnectedIds;
       this.messages.push(`ConnectionId [${connectionId}] left the chat !!`);
+      //alert(`Connection Id: ${connectionId}`);
+    });
+
+    this.chatService.hubConnection.on('onMyMessageReceived', (fromConnectionId,user, message) => {
+      console.warn(`Received message from connection id: ${fromConnectionId}`);
+      console.log(message);
       //alert(`Connection Id: ${connectionId}`);
     });
   }

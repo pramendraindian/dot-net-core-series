@@ -1,4 +1,12 @@
 <div>
+  <label >To UserId: {{connectionId}}</label>
+    
+  </div>
+  <div>
+    <input type="text" [(ngModel)]="toConnectionId" placeholder="To Connection Id" rows="5" cols="50"/>
+  </div>
+
+<div>
   <label >UserId: {{connectionId}}</label>
     
   </div>
@@ -10,6 +18,7 @@
   </div>
   <div>
     <button (click)="broadcastMessage()">Send</button>
+    <button (click)="sebdPrivateMessage()">Send Private Message</button>
   </div>
   <hr>
   <div *ngFor="let msg of messages">
@@ -22,5 +31,5 @@
     </div>
     <hr>
   <div *ngFor="let con of connections">
-    {{con?.connectionId}}
+    <span style="background-color: aquamarine;" (click)="toConnectionId=con.connectionId">    {{con?.connectionId}}</span>
   </div>

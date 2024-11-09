@@ -37,15 +37,15 @@ namespace Messaging.Server.Hubs
             await Clients.All.SendAsync("GlobalMessageTopic", Context.ConnectionId,user, message,this.chatConnections);
             
         }
-        public async Task SendToSpecificUser(string connectionId,string userName, string message)
+        public async Task SendPrivateMessage(string toConnectionId,string userName, string message)
         {
 
-            string fromUserId = Context.ConnectionId;
-           
-             await   Clients.Client(connectionId).SendAsync(userName,message);
+            string fromConnectionId = Context.ConnectionId;
 
-                // send to caller user
-             await Clients.Caller.SendAsync(userName, message);
+            await Clients.Client(toConnectionId).SendAsync("onMyMessageReceived", fromConnectionId, userName, fromConnectionId+" sending to : "+toConnectionId+" "+ message);
+            
+             // send to caller user
+             //await Clients.Caller.SendAsync(userName, message);
             
 
         }

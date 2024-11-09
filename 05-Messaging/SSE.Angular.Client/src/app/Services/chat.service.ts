@@ -20,4 +20,9 @@ export class ChatService {
     this.hubConnection.invoke('BroadcastMessage', user, message)
       .catch(err => console.error(err));
   }
+
+  sendPrivateMessage(toConnectionId:string,user: string, message: string): void {
+    this.hubConnection.invoke('SendPrivateMessage',toConnectionId, user, message)
+      .catch(err => console.error(err));
+  }
 }
